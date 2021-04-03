@@ -17,6 +17,7 @@
     "babel-loader": "^8.2.2",
     "bootswatch": "^4.6.0",
     "css-loader": "^5.2.0",
+    "dotenv-webpack": "^7.0.2",
     "eslint": "^7.23.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-react": "^7.23.1",
