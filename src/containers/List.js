@@ -36,8 +36,16 @@ class List extends Component {
         
         const res = await fetch(`${API}&s=${this.state.searchTerm}`)
         const data = await res.json()
+
+        if (!data.Search) {
+            return this.setState({
+                error: 'There are not results'
+            })
+        }
         this.setState({
-            data:data.Search
+            data:data.Search,
+            error: '',
+            searchTerm: ''
         })
 
     }
@@ -53,6 +61,7 @@ class List extends Component {
                                 className="form-control"
                                 placeholder="Search"
                                 onChange={e => this.setState({searchTerm: e.target.value})}
+                                value={this.state.searchTerm}
                                 autoFocus/>
 
     
