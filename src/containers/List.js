@@ -11,7 +11,8 @@ class List extends Component {
         this.state = {
             data: [],
             searchTerm: '',
-            error: ''
+            error: '',
+            loading: true
         }
     }
 
@@ -21,7 +22,8 @@ class List extends Component {
         const resJSON = await res.json()
 
         this.setState({
-            data: resJSON.Search
+            data: resJSON.Search,
+            loading: false
         })
     }
 
@@ -51,6 +53,10 @@ class List extends Component {
     }
 
     render() {
+        const {data, loading} = this.state
+        if (loading) {
+            return <h3 className="text-light">Loading...</h3>
+        }
         return (
             <Fragment>
                 <div className="row">
@@ -70,7 +76,7 @@ class List extends Component {
                     </div>
                 </div>
                 <div className="row">
-                {this.state.data.map((movie, i) => (
+                {data.map((movie, i) => (
                     <Card movie={movie} key={i} />
                 ))}
                 </div>
