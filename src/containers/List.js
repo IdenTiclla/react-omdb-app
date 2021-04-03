@@ -70,9 +70,9 @@ class List extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    {this.state.data.map(movie => (
-                        <Card movie={movie}></Card>
-                    ))}
+                {this.state.data.map((movie, i) => (
+                    <Card movie={movie} key={i} />
+                ))}
                 </div>
             </Fragment>
         )
